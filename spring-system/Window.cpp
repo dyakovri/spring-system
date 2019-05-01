@@ -28,14 +28,11 @@ namespace springsystem {
 
 		box_h = Math::Abs((double)dx_val->Value) + 10;
 		box_w = Math::Abs((double)dy_val->Value) + 10;
-
-		box_x = 0;
-		box_y = 0;
-
+		
 		mass_x = (double)dx_val->Value;
 		mass_y = (double)dy_val->Value;
 
-		p = new springsys((double)massm_val->Value / 1000.0, (double)boxm_val->Value / 1000.0, (double)k1_val->Value, (double)k2_val->Value, (double)k3_val->Value, (double)k4_val->Value, (double)mu_val->Value, (double)dx_val->Value, (double)dy_val->Value);
+		p = new springsys((double)massm_val->Value / 1000.0, (double)boxm_val->Value / 1000.0, (double)k1_val->Value, (double)k2_val->Value, (double)k3_val->Value, (double)k4_val->Value, (double)mu_val->Value, (double)dx_val->Value, (double)dy_val->Value, box_w, box_h);
 
 		timer1->Start();
 

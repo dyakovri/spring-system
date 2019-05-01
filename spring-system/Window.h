@@ -551,7 +551,7 @@ namespace springsystem {
 		}
 #pragma endregion
 	
-		private: double box_w, box_h, box_x, box_y, mass_x, mass_y;
+		private: double box_w, box_h, mass_x, mass_y;
 		private: double k1, k2, k3, k4;
 		private: springsys* p;
 
