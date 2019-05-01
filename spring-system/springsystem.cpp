@@ -33,8 +33,6 @@ std::vector<double> springsys::F(double t, std::vector<double>& Y)
 	FY[2] = Y[6]; // X' = VX
 	FY[3] = Y[7]; // Y' = VY
 
-	FY[4] = -((k1 + k3)*Y[0]) / m;
-	FY[5] = -((k2 + k4)*Y[1]) / m;
 
 	double vvx = Y[6] / sqrt(Y[6] * Y[6] + Y[7] * Y[7]);
 	double vvy = Y[7] / sqrt(Y[6] * Y[6] + Y[7] * Y[7]);
@@ -51,6 +49,9 @@ std::vector<double> springsys::F(double t, std::vector<double>& Y)
 	FY[6] = (Fup_x + Ftr_x) / M;
 	FY[7] = (Fup_y + Ftr_y) / M;
 
+	FY[4] = (-Fup_x - M * FY[6]) / m;
+	FY[5] = (-Fup_y - M * FY[7]) / m;
+	
 
 	return FY;
 }

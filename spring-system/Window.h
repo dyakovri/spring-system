@@ -402,6 +402,7 @@ namespace springsystem {
 			// 
 			// timer1
 			// 
+			this->timer1->Interval = 20;
 			this->timer1->Tick += gcnew System::EventHandler(this, &Window::timer1_Tick);
 			// 
 			// label13
