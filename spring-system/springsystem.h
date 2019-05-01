@@ -22,6 +22,8 @@ public:
 	double Fup(double k, double dx) { return k * dx; }
 	double Ftr(double mu, double m, double max);
 
+	std::vector<double> get_spring_begin(int num);
+
 	// Унаследовано через RungeKutta
 	virtual std::vector<double> F(double t, std::vector<double>& Y) override;
 };

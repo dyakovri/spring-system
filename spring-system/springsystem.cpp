@@ -37,6 +37,35 @@ double springsys::Ftr(double mu, double m, double max)
 	return -F;
 }
 
+std::vector<double> springsys::get_spring_begin(int num)
+{
+	std::vector<double> coords(2);
+
+	switch (num)
+	{
+	case 0:
+		coords[0] = Y[2];
+		coords[1] = Y[3] + h;
+		break;
+	case 1:
+		coords[0] = Y[2] + w;
+		coords[1] = Y[3];
+		break;
+	case 2:
+		coords[0] = Y[2];
+		coords[1] = Y[3] - h;
+		break;
+	case 3:
+		coords[0] = Y[2] - w;
+		coords[1] = Y[3];
+		break;
+	default:
+		break;
+	}
+
+	return coords;
+}
+
 std::vector<double> springsys::F(double t, std::vector<double>& Y)
 {
 	FY[0] = Y[4]; // x' = Vx
@@ -45,10 +74,16 @@ std::vector<double> springsys::F(double t, std::vector<double>& Y)
 	FY[3] = Y[7]; // Y' = VY
 
 	// ƒлины пружин
-	double l1 = sqrt(pow(Y[0] - Y[2], 2) + pow(Y[1] - Y[3] - h, 2));
+	/*double l1 = sqrt(pow(Y[0] - Y[2], 2) + pow(Y[1] - Y[3] - h, 2));
 	double l2 = sqrt(pow(Y[0] - Y[2] - w, 2) + pow(Y[1] - Y[3], 2));
 	double l3 = sqrt(pow(Y[0] - Y[2], 2) + pow(Y[1] - Y[3] + h, 2));
-	double l4 = sqrt(pow(Y[0] - Y[2] + w, 2) + pow(Y[1] - Y[3], 2));
+	double l4 = sqrt(pow(Y[0] - Y[2] + w, 2) + pow(Y[1] - Y[3], 2));*/
+
+	double l1 = sqrt(pow(Y[0] - get_spring_begin(0)[0], 2) + pow(Y[1] - get_spring_begin(0)[1], 2));
+	double l2 = sqrt(pow(Y[0] - get_spring_begin(1)[0], 2) + pow(Y[1] - get_spring_begin(1)[1], 2));
+	double l3 = sqrt(pow(Y[0] - get_spring_begin(2)[0], 2) + pow(Y[1] - get_spring_begin(2)[1], 2));
+	double l4 = sqrt(pow(Y[0] - get_spring_begin(3)[0], 2) + pow(Y[1] - get_spring_begin(3)[1], 2));
+
 
 	// ”длинени€ пружин
 	double d1 = l1 - w;
@@ -57,8 +92,18 @@ std::vector<double> springsys::F(double t, std::vector<double>& Y)
 	double d4 = h - l4;
 
 	// —илы упругости, действующие вдоль осей x и y
-	double Fx = Y[0] * (d1 * k1 / l1) + (w - Y[0]) * (d2 * k2 / l2) + Y[0] * (d3 * k3 / l3) + (w - Y[0]) * (d4 * k4 / l4);
-	double Fy = (h - Y[1]) * (d1 * k1 / l1) + Y[1] * (d2 * k2 / l2) + (h - Y[1]) * (d3 * k3 / l3) + Y[1] * (d4 * k4 / l4);
+	double F1x = k1 * (Y[0] - Y[2]) * ((h) / sqrt(pow(Y[0] - Y[2], 2) + pow(Y[3] + h - Y[1], 2)) - 1);
+	double F2x = -k2 * (Y[2] - Y[0] + w) * ((w) / sqrt(pow(Y[2] - Y[0] + w, 2) + pow(Y[1] - Y[3], 2)));
+	double F3x = -k3 * (Y[0] - Y[2]) * (1 - (h) / sqrt(pow(Y[0] - Y[2], 2) + pow(Y[1] + h - Y[3], 2)));
+	double F4x = -k4 * (Y[2] - Y[0] + w) * (1 - (w) / sqrt(pow(Y[0] - Y[2] + w, 2) + pow(Y[1] - Y[3], 2)));
+
+	double F1y = -k1 * (Y[3] - Y[1] + h) * ((h) / sqrt(pow(Y[0] - Y[2], 2) + pow(Y[3] + h - Y[1], 2)) - 1);
+	double F2y = k2 * (Y[1] - Y[3]) * ((w) / sqrt(pow(Y[2] - Y[0] + w, 2) + pow(Y[1] - Y[3], 2)));
+	double F3y = -k3 * (Y[1] - Y[3] + h) * (1 - (h) / sqrt(pow(Y[0] - Y[2], 2) + pow(Y[1] + h - Y[3], 2)));
+	double F4y = -k4 * (Y[1] - Y[3]) * (1 - (w) / sqrt(pow(Y[0] - Y[2] + w, 2) + pow(Y[1] - Y[3], 2)));
+
+	double Fx = F1x + F2x + F3x + F4x;
+	double Fy = F1y + F2y + F3y + F4y;
 
 	// –ассчет синуса и косинуса направлени€ скорости дл€ проецировани€ силы трени€
 	double vvx = Y[6] / sqrt(Y[6] * Y[6] + Y[7] * Y[7]);
