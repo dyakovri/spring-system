@@ -26,8 +26,8 @@ namespace springsystem {
 		k3 = (double)k3_val->Value;
 		k4 = (double)k4_val->Value;
 
-		box_h = Math::Abs((double)dx_val->Value) + 10;
-		box_w = Math::Abs((double)dy_val->Value) + 10;
+		box_h = Math::Abs((double)dy_val->Value) + 10;
+		box_w = Math::Abs((double)dx_val->Value) + 10;
 		
 		mass_x = (double)dx_val->Value;
 		mass_y = (double)dy_val->Value;
@@ -62,7 +62,11 @@ namespace springsystem {
 		chart1->Series["Mass"]->Points->Clear();
 		chart1->Series["Box"]->Points->Clear();
 		chart1->Series["Traj"]->Points->Clear();
-		
+		chart1->Series["Spring1"]->Points->Clear();
+		chart1->Series["Spring2"]->Points->Clear();
+		chart1->Series["Spring3"]->Points->Clear();
+		chart1->Series["Spring4"]->Points->Clear();
+
 		start_button->Enabled = true;
 		pause_button->Enabled = false;
 		stop_button->Enabled = false;
@@ -78,11 +82,28 @@ namespace springsystem {
 		chart1->Series["Traj"]->Points->AddXY(p->get_x(), p->get_y());
 
 		chart1->Series["Box"]->Points->Clear();
-		chart1->Series["Box"]->Points->AddXY(p->get_X() + box_h, p->get_Y() + box_w);
-		chart1->Series["Box"]->Points->AddXY(p->get_X() + box_h, p->get_Y() - box_w);
-		chart1->Series["Box"]->Points->AddXY(p->get_X() - box_h, p->get_Y() - box_w);
-		chart1->Series["Box"]->Points->AddXY(p->get_X() - box_h, p->get_Y() + box_w);
-		chart1->Series["Box"]->Points->AddXY(p->get_X() + box_h, p->get_Y() + box_w);
+		chart1->Series["Box"]->Points->AddXY(p->get_X() + box_w, p->get_Y() + box_h);
+		chart1->Series["Box"]->Points->AddXY(p->get_X() + box_w, p->get_Y() - box_h);
+		chart1->Series["Box"]->Points->AddXY(p->get_X() - box_w, p->get_Y() - box_h);
+		chart1->Series["Box"]->Points->AddXY(p->get_X() - box_w, p->get_Y() + box_h);
+		chart1->Series["Box"]->Points->AddXY(p->get_X() + box_w, p->get_Y() + box_h);
+
+
+		chart1->Series["Spring1"]->Points->Clear();
+		chart1->Series["Spring1"]->Points->AddXY(p->get_spring_begin(0)[0], p->get_spring_begin(0)[1]);
+		chart1->Series["Spring1"]->Points->AddXY(p->get_x(), p->get_y());
+
+		chart1->Series["Spring2"]->Points->Clear();
+		chart1->Series["Spring2"]->Points->AddXY(p->get_spring_begin(1)[0], p->get_spring_begin(1)[1]);
+		chart1->Series["Spring2"]->Points->AddXY(p->get_x(), p->get_y());
+
+		chart1->Series["Spring3"]->Points->Clear();
+		chart1->Series["Spring3"]->Points->AddXY(p->get_spring_begin(2)[0], p->get_spring_begin(2)[1]);
+		chart1->Series["Spring3"]->Points->AddXY(p->get_x(), p->get_y());
+
+		chart1->Series["Spring4"]->Points->Clear();
+		chart1->Series["Spring4"]->Points->AddXY(p->get_spring_begin(3)[0], p->get_spring_begin(3)[1]);
+		chart1->Series["Spring4"]->Points->AddXY(p->get_x(), p->get_y());
 
 	}
 }
