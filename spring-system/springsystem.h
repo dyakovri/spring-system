@@ -18,6 +18,14 @@ public:
 	double get_X() { return (Y[2]); }
 	double get_Y() { return (Y[3]); }
 
+	double Fup(double k, double dx) { return k * dx; }
+	double Ftr(double mu, double m, double max) { 
+		double F = mu * m * 9.81;
+		max = abs(max);
+		if (F > max) return -max;
+		return -F; 
+	}
+
 	// Унаследовано через RungeKutta
 	virtual std::vector<double> F(double t, std::vector<double>& Y) override;
 };

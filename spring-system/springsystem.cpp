@@ -41,10 +41,10 @@ std::vector<double> springsys::F(double t, std::vector<double>& Y)
 		vvy = 0;
 	}
 
-	double Ftr_x = -mu * (m + M)*9.81*vvx;
-	double Ftr_y = -mu * (m + M)*9.81*vvy;
-	double Fup_x = (k1 + k3)*Y[0];
-	double Fup_y = (k2 + k4)*Y[1];
+	double Fup_x = Fup(k1+k3, Y[0]);
+	double Fup_y = Fup(k2 + k4, Y[1]);
+	double Ftr_x = Ftr(mu, m + M, Fup_x) * vvx;
+	double Ftr_y = Ftr(mu, m + M, Fup_y) * vvy;
 
 	FY[6] = (Fup_x + Ftr_x) / M;
 	FY[7] = (Fup_y + Ftr_y) / M;
