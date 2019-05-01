@@ -10,11 +10,6 @@ namespace springsystem {
 	using namespace System::Data;
 	using namespace System::Drawing;
 
-	//springsys* p;
-
-	/// <summary>
-	/// Сводка для Window
-	/// </summary>
 	public ref class Window : public System::Windows::Forms::Form
 	{
 	public:
@@ -39,9 +34,6 @@ namespace springsystem {
 		}
 
 	protected:
-		/// <summary>
-		/// Освободить все используемые ресурсы.
-		/// </summary>
 		~Window()
 		{
 			if (components)
@@ -79,6 +71,10 @@ namespace springsystem {
 	private: System::Windows::Forms::Label^  label16;
 	private: System::Windows::Forms::NumericUpDown^  massm_val;
 	private: System::Windows::Forms::NumericUpDown^  boxm_val;
+	private: System::Windows::Forms::Label^  label17;
+	private: System::Windows::Forms::Label^  label18;
+	private: System::Windows::Forms::NumericUpDown^  mu_val;
+
 
 
 
@@ -87,27 +83,21 @@ namespace springsystem {
 
 
 	private:
-		/// <summary>
-		/// Обязательная переменная конструктора.
-		/// </summary>
 
 
 #pragma region Windows Form Designer generated code
-		/// <summary>
-		/// Требуемый метод для поддержки конструктора — не изменяйте 
-		/// содержимое этого метода с помощью редактора кода.
-		/// </summary>
 		void InitializeComponent(void)
 		{
 			this->components = (gcnew System::ComponentModel::Container());
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^  chartArea2 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::CustomLabel^  customLabel3 = (gcnew System::Windows::Forms::DataVisualization::Charting::CustomLabel());
-			System::Windows::Forms::DataVisualization::Charting::CustomLabel^  customLabel4 = (gcnew System::Windows::Forms::DataVisualization::Charting::CustomLabel());
-			System::Windows::Forms::DataVisualization::Charting::Series^  series4 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
-			System::Windows::Forms::DataVisualization::Charting::Series^  series5 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
-			System::Windows::Forms::DataVisualization::Charting::Series^  series6 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
-			System::Windows::Forms::DataVisualization::Charting::DataPoint^  dataPoint2 = (gcnew System::Windows::Forms::DataVisualization::Charting::DataPoint(0,
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^  chartArea1 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::CustomLabel^  customLabel1 = (gcnew System::Windows::Forms::DataVisualization::Charting::CustomLabel());
+			System::Windows::Forms::DataVisualization::Charting::CustomLabel^  customLabel2 = (gcnew System::Windows::Forms::DataVisualization::Charting::CustomLabel());
+			System::Windows::Forms::DataVisualization::Charting::Series^  series1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::Series^  series2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::Series^  series3 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::DataPoint^  dataPoint1 = (gcnew System::Windows::Forms::DataVisualization::Charting::DataPoint(0,
 				0));
+			System::Windows::Forms::DataVisualization::Charting::Series^  series4 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
 			this->chart1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->start_button = (gcnew System::Windows::Forms::Button());
@@ -137,6 +127,9 @@ namespace springsystem {
 			this->label16 = (gcnew System::Windows::Forms::Label());
 			this->massm_val = (gcnew System::Windows::Forms::NumericUpDown());
 			this->boxm_val = (gcnew System::Windows::Forms::NumericUpDown());
+			this->label17 = (gcnew System::Windows::Forms::Label());
+			this->label18 = (gcnew System::Windows::Forms::Label());
+			this->mu_val = (gcnew System::Windows::Forms::NumericUpDown());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->k1_val))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->k2_val))->BeginInit();
@@ -146,49 +139,54 @@ namespace springsystem {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dy_val))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->massm_val))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->boxm_val))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->mu_val))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// chart1
 			// 
-			chartArea2->AxisX->CustomLabels->Add(customLabel3);
-			chartArea2->AxisX->MajorGrid->Interval = 5;
-			chartArea2->AxisX->MajorGrid->LineColor = System::Drawing::Color::Gray;
-			chartArea2->AxisX->MinorGrid->Enabled = true;
-			chartArea2->AxisX->MinorGrid->Interval = 1;
-			chartArea2->AxisX->MinorGrid->LineColor = System::Drawing::Color::Gainsboro;
-			chartArea2->AxisY->CustomLabels->Add(customLabel4);
-			chartArea2->AxisY->MajorGrid->Interval = 5;
-			chartArea2->AxisY->MajorGrid->LineColor = System::Drawing::Color::Gray;
-			chartArea2->AxisY->MinorGrid->Enabled = true;
-			chartArea2->AxisY->MinorGrid->Interval = 1;
-			chartArea2->AxisY->MinorGrid->LineColor = System::Drawing::Color::Gainsboro;
-			chartArea2->Name = L"ChartArea1";
-			this->chart1->ChartAreas->Add(chartArea2);
+			chartArea1->AxisX->CustomLabels->Add(customLabel1);
+			chartArea1->AxisX->MajorGrid->Interval = 5;
+			chartArea1->AxisX->MajorGrid->LineColor = System::Drawing::Color::Gray;
+			chartArea1->AxisX->MinorGrid->Enabled = true;
+			chartArea1->AxisX->MinorGrid->Interval = 1;
+			chartArea1->AxisX->MinorGrid->LineColor = System::Drawing::Color::Gainsboro;
+			chartArea1->AxisY->CustomLabels->Add(customLabel2);
+			chartArea1->AxisY->MajorGrid->Interval = 5;
+			chartArea1->AxisY->MajorGrid->LineColor = System::Drawing::Color::Gray;
+			chartArea1->AxisY->MinorGrid->Enabled = true;
+			chartArea1->AxisY->MinorGrid->Interval = 1;
+			chartArea1->AxisY->MinorGrid->LineColor = System::Drawing::Color::Gainsboro;
+			chartArea1->Name = L"ChartArea1";
+			this->chart1->ChartAreas->Add(chartArea1);
 			this->chart1->Location = System::Drawing::Point(12, 119);
 			this->chart1->Name = L"chart1";
-			series4->BorderWidth = 5;
+			series1->BorderWidth = 5;
+			series1->ChartArea = L"ChartArea1";
+			series1->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Line;
+			series1->Color = System::Drawing::Color::Black;
+			series1->MarkerColor = System::Drawing::Color::Black;
+			series1->Name = L"Box";
+			series2->ChartArea = L"ChartArea1";
+			series2->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Point;
+			series2->MarkerColor = System::Drawing::Color::DimGray;
+			series2->MarkerSize = 15;
+			series2->MarkerStyle = System::Windows::Forms::DataVisualization::Charting::MarkerStyle::Square;
+			series2->Name = L"Mass";
+			series2->XValueType = System::Windows::Forms::DataVisualization::Charting::ChartValueType::Double;
+			series2->YValueType = System::Windows::Forms::DataVisualization::Charting::ChartValueType::Double;
+			series3->ChartArea = L"ChartArea1";
+			series3->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::FastPoint;
+			series3->MarkerColor = System::Drawing::Color::Transparent;
+			series3->MarkerSize = 0;
+			series3->Name = L"TransparentCenter";
+			series3->Points->Add(dataPoint1);
 			series4->ChartArea = L"ChartArea1";
-			series4->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Line;
-			series4->Color = System::Drawing::Color::Black;
-			series4->MarkerColor = System::Drawing::Color::Black;
-			series4->Name = L"Box";
-			series5->ChartArea = L"ChartArea1";
-			series5->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Point;
-			series5->MarkerColor = System::Drawing::Color::DimGray;
-			series5->MarkerSize = 15;
-			series5->MarkerStyle = System::Windows::Forms::DataVisualization::Charting::MarkerStyle::Square;
-			series5->Name = L"Mass";
-			series5->XValueType = System::Windows::Forms::DataVisualization::Charting::ChartValueType::Double;
-			series5->YValueType = System::Windows::Forms::DataVisualization::Charting::ChartValueType::Double;
-			series6->ChartArea = L"ChartArea1";
-			series6->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::FastPoint;
-			series6->MarkerColor = System::Drawing::Color::Transparent;
-			series6->MarkerSize = 0;
-			series6->Name = L"TransparentCenter";
-			series6->Points->Add(dataPoint2);
+			series4->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::FastLine;
+			series4->Name = L"Traj";
+			this->chart1->Series->Add(series1);
+			this->chart1->Series->Add(series2);
+			this->chart1->Series->Add(series3);
 			this->chart1->Series->Add(series4);
-			this->chart1->Series->Add(series5);
-			this->chart1->Series->Add(series6);
 			this->chart1->Size = System::Drawing::Size(474, 339);
 			this->chart1->TabIndex = 0;
 			this->chart1->Text = L"chart1";
@@ -204,11 +202,11 @@ namespace springsystem {
 			// 
 			// start_button
 			// 
-			this->start_button->Location = System::Drawing::Point(402, 7);
+			this->start_button->Location = System::Drawing::Point(347, 7);
 			this->start_button->Name = L"start_button";
-			this->start_button->Size = System::Drawing::Size(84, 23);
-			this->start_button->TabIndex = 7;
-			this->start_button->Text = L"Старт";
+			this->start_button->Size = System::Drawing::Size(139, 23);
+			this->start_button->TabIndex = 10;
+			this->start_button->Text = L"Start";
 			this->start_button->UseVisualStyleBackColor = true;
 			this->start_button->Click += gcnew System::EventHandler(this, &Window::start_button_Click);
 			// 
@@ -322,11 +320,11 @@ namespace springsystem {
 			// pause_button
 			// 
 			this->pause_button->Enabled = false;
-			this->pause_button->Location = System::Drawing::Point(402, 36);
+			this->pause_button->Location = System::Drawing::Point(347, 33);
 			this->pause_button->Name = L"pause_button";
-			this->pause_button->Size = System::Drawing::Size(84, 23);
-			this->pause_button->TabIndex = 8;
-			this->pause_button->Text = L"Пауза";
+			this->pause_button->Size = System::Drawing::Size(139, 23);
+			this->pause_button->TabIndex = 11;
+			this->pause_button->Text = L"Pause";
 			this->pause_button->UseVisualStyleBackColor = true;
 			this->pause_button->Click += gcnew System::EventHandler(this, &Window::pause_button_Click);
 			// 
@@ -334,18 +332,18 @@ namespace springsystem {
 			// 
 			this->stop_button->DialogResult = System::Windows::Forms::DialogResult::Cancel;
 			this->stop_button->Enabled = false;
-			this->stop_button->Location = System::Drawing::Point(402, 65);
+			this->stop_button->Location = System::Drawing::Point(347, 59);
 			this->stop_button->Name = L"stop_button";
-			this->stop_button->Size = System::Drawing::Size(84, 23);
-			this->stop_button->TabIndex = 9;
-			this->stop_button->Text = L"Стоп";
+			this->stop_button->Size = System::Drawing::Size(139, 23);
+			this->stop_button->TabIndex = 12;
+			this->stop_button->Text = L"Stop";
 			this->stop_button->UseVisualStyleBackColor = true;
 			this->stop_button->Click += gcnew System::EventHandler(this, &Window::stop_button_Click);
 			// 
 			// label9
 			// 
 			this->label9->AutoSize = true;
-			this->label9->Location = System::Drawing::Point(193, 69);
+			this->label9->Location = System::Drawing::Point(186, 95);
 			this->label9->Name = L"label9";
 			this->label9->Size = System::Drawing::Size(32, 13);
 			this->label9->TabIndex = 1;
@@ -354,7 +352,7 @@ namespace springsystem {
 			// label10
 			// 
 			this->label10->AutoSize = true;
-			this->label10->Location = System::Drawing::Point(193, 95);
+			this->label10->Location = System::Drawing::Point(344, 95);
 			this->label10->Name = L"label10";
 			this->label10->Size = System::Drawing::Size(32, 13);
 			this->label10->TabIndex = 1;
@@ -363,7 +361,7 @@ namespace springsystem {
 			// label11
 			// 
 			this->label11->AutoSize = true;
-			this->label11->Location = System::Drawing::Point(316, 69);
+			this->label11->Location = System::Drawing::Point(309, 95);
 			this->label11->Name = L"label11";
 			this->label11->Size = System::Drawing::Size(21, 13);
 			this->label11->TabIndex = 1;
@@ -372,7 +370,7 @@ namespace springsystem {
 			// label12
 			// 
 			this->label12->AutoSize = true;
-			this->label12->Location = System::Drawing::Point(316, 95);
+			this->label12->Location = System::Drawing::Point(467, 95);
 			this->label12->Name = L"label12";
 			this->label12->Size = System::Drawing::Size(21, 13);
 			this->label12->TabIndex = 1;
@@ -380,24 +378,24 @@ namespace springsystem {
 			// 
 			// dx_val
 			// 
-			this->dx_val->Location = System::Drawing::Point(230, 67);
+			this->dx_val->Location = System::Drawing::Point(223, 93);
 			this->dx_val->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 100000, 0, 0, 0 });
 			this->dx_val->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 100000, 0, 0, System::Int32::MinValue });
 			this->dx_val->Name = L"dx_val";
 			this->dx_val->Size = System::Drawing::Size(80, 20);
-			this->dx_val->TabIndex = 5;
+			this->dx_val->TabIndex = 8;
 			this->dx_val->ThousandsSeparator = true;
 			this->dx_val->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 3, 0, 0, 0 });
 			this->dx_val->ValueChanged += gcnew System::EventHandler(this, &Window::d_change);
 			// 
 			// dy_val
 			// 
-			this->dy_val->Location = System::Drawing::Point(230, 93);
+			this->dy_val->Location = System::Drawing::Point(381, 93);
 			this->dy_val->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 100000, 0, 0, 0 });
 			this->dy_val->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 100000, 0, 0, System::Int32::MinValue });
 			this->dy_val->Name = L"dy_val";
 			this->dy_val->Size = System::Drawing::Size(80, 20);
-			this->dy_val->TabIndex = 6;
+			this->dy_val->TabIndex = 9;
 			this->dy_val->ThousandsSeparator = true;
 			this->dy_val->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 5, 0, 0, 0 });
 			this->dy_val->ValueChanged += gcnew System::EventHandler(this, &Window::d_change);
@@ -409,7 +407,7 @@ namespace springsystem {
 			// label13
 			// 
 			this->label13->AutoSize = true;
-			this->label13->Location = System::Drawing::Point(193, 14);
+			this->label13->Location = System::Drawing::Point(186, 17);
 			this->label13->Name = L"label13";
 			this->label13->Size = System::Drawing::Size(27, 13);
 			this->label13->TabIndex = 1;
@@ -418,7 +416,7 @@ namespace springsystem {
 			// label14
 			// 
 			this->label14->AutoSize = true;
-			this->label14->Location = System::Drawing::Point(193, 40);
+			this->label14->Location = System::Drawing::Point(186, 43);
 			this->label14->Name = L"label14";
 			this->label14->Size = System::Drawing::Size(28, 13);
 			this->label14->TabIndex = 1;
@@ -427,7 +425,7 @@ namespace springsystem {
 			// label15
 			// 
 			this->label15->AutoSize = true;
-			this->label15->Location = System::Drawing::Point(316, 14);
+			this->label15->Location = System::Drawing::Point(309, 17);
 			this->label15->Name = L"label15";
 			this->label15->Size = System::Drawing::Size(13, 13);
 			this->label15->TabIndex = 1;
@@ -436,7 +434,7 @@ namespace springsystem {
 			// label16
 			// 
 			this->label16->AutoSize = true;
-			this->label16->Location = System::Drawing::Point(316, 40);
+			this->label16->Location = System::Drawing::Point(309, 43);
 			this->label16->Name = L"label16";
 			this->label16->Size = System::Drawing::Size(13, 13);
 			this->label16->TabIndex = 1;
@@ -444,7 +442,7 @@ namespace springsystem {
 			// 
 			// massm_val
 			// 
-			this->massm_val->Location = System::Drawing::Point(230, 12);
+			this->massm_val->Location = System::Drawing::Point(223, 15);
 			this->massm_val->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 100000, 0, 0, 0 });
 			this->massm_val->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 100000, 0, 0, System::Int32::MinValue });
 			this->massm_val->Name = L"massm_val";
@@ -456,7 +454,7 @@ namespace springsystem {
 			// 
 			// boxm_val
 			// 
-			this->boxm_val->Location = System::Drawing::Point(230, 38);
+			this->boxm_val->Location = System::Drawing::Point(223, 41);
 			this->boxm_val->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 100000, 0, 0, 0 });
 			this->boxm_val->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 100000, 0, 0, System::Int32::MinValue });
 			this->boxm_val->Name = L"boxm_val";
@@ -465,6 +463,36 @@ namespace springsystem {
 			this->boxm_val->ThousandsSeparator = true;
 			this->boxm_val->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 800, 0, 0, 0 });
 			this->boxm_val->ValueChanged += gcnew System::EventHandler(this, &Window::d_change);
+			// 
+			// label17
+			// 
+			this->label17->AutoSize = true;
+			this->label17->Location = System::Drawing::Point(186, 69);
+			this->label17->Name = L"label17";
+			this->label17->Size = System::Drawing::Size(33, 13);
+			this->label17->TabIndex = 1;
+			this->label17->Text = L"mu = ";
+			// 
+			// label18
+			// 
+			this->label18->AutoSize = true;
+			this->label18->Location = System::Drawing::Point(309, 69);
+			this->label18->Name = L"label18";
+			this->label18->Size = System::Drawing::Size(0, 13);
+			this->label18->TabIndex = 1;
+			// 
+			// mu_val
+			// 
+			this->mu_val->DecimalPlaces = 2;
+			this->mu_val->Increment = System::Decimal(gcnew cli::array< System::Int32 >(4) { 5, 0, 0, 131072 });
+			this->mu_val->Location = System::Drawing::Point(223, 67);
+			this->mu_val->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 0 });
+			this->mu_val->Name = L"mu_val";
+			this->mu_val->Size = System::Drawing::Size(80, 20);
+			this->mu_val->TabIndex = 7;
+			this->mu_val->ThousandsSeparator = true;
+			this->mu_val->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 2, 0, 0, 65536 });
+			this->mu_val->ValueChanged += gcnew System::EventHandler(this, &Window::d_change);
 			// 
 			// Window
 			// 
@@ -475,6 +503,7 @@ namespace springsystem {
 			this->ClientSize = System::Drawing::Size(498, 470);
 			this->Controls->Add(this->k4_val);
 			this->Controls->Add(this->k3_val);
+			this->Controls->Add(this->mu_val);
 			this->Controls->Add(this->boxm_val);
 			this->Controls->Add(this->dy_val);
 			this->Controls->Add(this->k2_val);
@@ -485,6 +514,7 @@ namespace springsystem {
 			this->Controls->Add(this->label6);
 			this->Controls->Add(this->stop_button);
 			this->Controls->Add(this->pause_button);
+			this->Controls->Add(this->label18);
 			this->Controls->Add(this->start_button);
 			this->Controls->Add(this->label16);
 			this->Controls->Add(this->label7);
@@ -492,6 +522,7 @@ namespace springsystem {
 			this->Controls->Add(this->label4);
 			this->Controls->Add(this->label15);
 			this->Controls->Add(this->label5);
+			this->Controls->Add(this->label17);
 			this->Controls->Add(this->label11);
 			this->Controls->Add(this->label14);
 			this->Controls->Add(this->label2);
@@ -512,6 +543,7 @@ namespace springsystem {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dy_val))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->massm_val))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->boxm_val))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->mu_val))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -520,6 +552,7 @@ namespace springsystem {
 	
 		private: double box_w, box_h, box_x, box_y, mass_x, mass_y;
 		private: double k1, k2, k3, k4;
+		private: springsys* p;
 
 		private: System::Void d_change(System::Object^  sender, System::EventArgs^  e);
 		private: System::Void start_button_Click(System::Object^  sender, System::EventArgs^  e);
